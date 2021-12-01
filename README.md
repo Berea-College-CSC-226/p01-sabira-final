@@ -1,14 +1,14 @@
-# ❗CSC226 Project
+CSC226 Project
 
 **Term**: Fall 2021
 
-❗️**Author(s)**: Your name(s) here
+️**Author(s)**: Sabira Duishebaeva
 
-❗️indicates action items; you should remove these emoji as you complete/update the items which they accompany. (This means that your final README should have no ❗️in it!)
+indicates action items; you should remove these emoji as you complete/update the items which they accompany. (This means that your final README should have no in it!)
 
 ---
 
-❗**References**: 
+**References**: 
 Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, and describe how you integrated the ideas or code into your program. This includes online sources, people who have helped you, and any other resources that are not solely your own contribution. Update as you go.
 
 ---
@@ -17,9 +17,16 @@ Throughout this project, you have likely used outside resources. Reference all i
 
 ❗️**Title**: What is the title of your project?
 
-❗**Purpose**: In a single sentence, describe what your project will do.
+Let's shop together!
 
-❗️**Sources**: Which assignments or code will you base your project on?
+**Purpose**: In a single sentence, describe what your project will do.
+
+My program is going to display various items from the shop and once you click on each,
+the program will generate a barcode for it and draw the barcode for a successful shopping. 
+
+**Sources**: Which assignments or code will you base your project on?
+
+A08 - UPC Bar code
 
 ❗️**CRC Card**:
   - Please write a CRC card for a class that your project will implement.
@@ -29,7 +36,11 @@ Throughout this project, you have likely used outside resources. Reference all i
   as an image and including the image(s) in the README. You can do this
   by saving an image in the repository and linking to it. See the sample CRC card below - and replace it with your own.
   
-![alt text](image/crc.png "Image of CRC card as an example. Upload your CRC card(s) in place of this one")
+
+CRC CARD LINK: https://docs.google.com/document/d/1alo3J6SiLNO59cr8YVD90KqUAc_PcugukqiccZ3GSOA/edit?usp=sharing
+![alt text](
+image/SABIRA_CRC.PNG)
+
 
 ---
 
