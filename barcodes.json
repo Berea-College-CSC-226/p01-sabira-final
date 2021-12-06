@@ -1,0 +1,38 @@
+[
+    {
+        "barcode_number": "056820720246",
+        "barcode_type": "UPC-A",
+        "item_name": "Coke",
+        "picture_link": "./img/Coke.jpg"
+    },
+    {
+        "barcode_number": "040706078972",
+        "barcode_type": "UPC-A",
+        "item_name": "Milk",
+        "picture_link": "./img/Milk.jpg"
+    },
+    {
+        "barcode_number": "082763255071",
+        "barcode_type": "UPC-A",
+        "item_name": "Bread",
+        "picture_link": "./img/Bread.jpg"
+    },
+    {
+        "barcode_number": "063561668171",
+        "barcode_type": "UPC-A",
+        "item_name": "Peach",
+        "picture_link": "./img/Peach.jpg"
+    },
+    {
+        "barcode_number": "033462346737",
+        "barcode_type": "UPC-A",
+        "item_name": "Banana",
+        "picture_link": "./img/Banana.jpg"
+    },
+    {
+        "barcode_number": "044811337573",
+        "barcode_type": "UPC-A",
+        "item_name": "Orange",
+        "picture_link": "./img/Orange.jpg"
+    }
+]

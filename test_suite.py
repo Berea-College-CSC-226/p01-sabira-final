@@ -20,9 +20,7 @@ def unittest(did_pass):
         msg = ("Test at line {0} FAILED.".format(linenum))
     print(msg)
 
-
-def test_suite():
-    pass
+    unittest(("1") == False)
 
 
 if __name__ == "__main__":
