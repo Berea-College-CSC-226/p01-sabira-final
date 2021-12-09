@@ -5,6 +5,9 @@ CSC226 Project
 ️**Author(s)**: Sabira Duishebaeva
 
 
+**Author Note**: 
+The program will only run if you have access to the internet. 
+
 
 **References**: 
 
