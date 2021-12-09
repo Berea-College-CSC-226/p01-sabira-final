@@ -8,8 +8,18 @@ from image_downloader import ImageDownloader
 
 
 class Barcode:
+    """
+    Class describing instance of a barcode
+    """
 
     def __init__(self, barcode_type, item_name):
+        """
+        Initializes Barcode object accepting barcode_type
+        and item_name as arguments
+        :param barcode_type: string representation of barcode type like UPC-A, EAN and etc.
+        :param item_name: string representation of item's name (Apple, Coke and etc.)
+        :return: Barcode object
+        """
         self.barcode_type = barcode_type
         self.item_name = item_name
         self.barcode_number = None
@@ -17,8 +27,13 @@ class Barcode:
         self.picture_link = None
 
     def validate(self):
+        """
+        Check validity of barcode number of the object
+        :return: Boolean
+        """
         if len(self.barcode_number) > 0:
-            x = self.barcode_number  # does the calculation for the barcode modulo
+            x = self.barcode_number
+            x = list(map(int, [char for char in x]))
             cal1 = x[0] + x[2] + x[4] + x[6] + x[8] + x[10]
             cal0 = cal1 * 3
             cal2 = x[1] + x[3] + x[5] + x[7] + x[9]
@@ -33,10 +48,14 @@ class Barcode:
             return False
 
     def convert2binary(self):
+        """
+        Convert barcode decimal number to binary representation
+        :return: String
+        """
         if len(self.barcode_number) > 0:
             lst = ['101']
-            left = str(self.barcode_number)[1:6]
-            right = str(self.barcode_number)[6:11]
+            left = str(self.barcode_number)[0:6]
+            right = str(self.barcode_number)[6:12]
 
             for s in left:  # left side of the barcode
                 i = int(s)
@@ -90,23 +109,55 @@ class Barcode:
 
 
 class BarcodeGenerator:
+    """
+    Helper class for generating barcode number and finding picture
+    """
 
     def __init__(self, barcode):
+        """
+        Initializes BarcodeGenerator object accepting Barcode instance as an argument
+        :return: BarcodeGenerator
+        """
         self.barcode = barcode
 
     def generate(self):
+        """
+        Generate barcode number for the Barcode object
+        :return: None
+        """
+
+        # NSC will be static as zero (US country)
         nsc = "0"
+
+        # Randomly generate manufacturer ID part
         manufacturer_id = str(random.randint(0, 99999)).zfill(5)
+
+        # Randomly generate item number part
         item_number = str(random.randint(0, 99999)).zfill(5)
+
+        # Calculate modulo check
         modulo_check = str(self.__calculate_modulo_check(nsc, manufacturer_id, item_number))
+
+        # Update barcode number and barcode length
         self.barcode.barcode_number = nsc + manufacturer_id + item_number + modulo_check
         self.barcode.length = 12
 
     def find_picture(self):
+        """
+        Use ImageDownloader class to search for image representing item's name
+        :return: None
+        """
         imd = ImageDownloader(self.barcode.item_name)
         self.barcode.picture_link = imd.search_link()
 
     def __calculate_modulo_check(self, nsc, l, r):
+        """
+        Calculate modulo check and return it
+        :param nsc: Numeric System Character
+        :param l: string representation of manufacturer ID
+        :param r: string representation of item number
+        :return: Integer
+        """
         x = nsc + l + r
         x = list(map(int, [char for char in x]))
         cal1 = x[0] + x[2] + x[4] + x[6] + x[8] + x[10]
@@ -118,8 +169,15 @@ class BarcodeGenerator:
 
 
 class BarcodeDrawer:
+    """
+    Helper class for drawing barcode
+    """
 
     def __init__(self, width, height):
+        """
+        Initialize BarcodeDrawer object with width and height of barcode image
+        :return: BarcodeDrawer object
+        """
         self.width = width
         self.height = height
         self.barcode_number = None
@@ -128,6 +186,14 @@ class BarcodeDrawer:
         self.item_picture = None
 
     def draw(self, barcode, canvas):
+        """
+        Draw barcode on the given canvas
+        :param barcode: Barcode object to draw
+        :param canvas: Canvas object to draw on
+        :return: None
+        """
+
+        # Delete previous barcode canvas objects
         if self.barcode_number is not None:
             canvas.delete(self.barcode_number)
         if self.barcode_image is not None:
@@ -136,6 +202,8 @@ class BarcodeDrawer:
             canvas.delete(self.item_name)
         if self.item_picture is not None:
             canvas.delete(self.item_picture)
+
+        # Draw barcode number, bars, item's name and image from the Internet
         self.barcode_number = canvas.create_text(415, 350, font=("Tahoma", 24), text=barcode.barcode_number)
         self.barcode_image = self.__drawBarcodeBars(barcode, canvas)
         self.item_name = canvas.create_text(415, 240, font=("Tahoma", 18), text=barcode.item_name)
@@ -145,10 +213,21 @@ class BarcodeDrawer:
         self.item_picture = canvas.create_image((370, 140), image=img, anchor=NW)
 
     def __deleteBarcodeBars(self, canvas):
+        """
+        Remove barcode from canvas
+        :param canvas: Canvas object
+        :return: None
+        """
         for rect in self.barcode_image:
             canvas.delete(rect)
 
     def __drawBarcodeBars(self, barcode, canvas):
+        """
+        Draw the bars of the barcode
+        :param barcode: Barcode object
+        :param canvas: Canvas object
+        :return: Array of integers
+        """
         binary_str = barcode.convert2binary()
         bar_width = self.width
         bar_height = self.height
@@ -167,14 +246,27 @@ class BarcodeDrawer:
 
 
 class MyGUI(Frame):
+    """
+    Class for creating GUI
+    """
 
     def __init__(self, parent, bd):
+        """
+        Initializes MyGUI object accepting
+        :param parent: Tk object
+        :param canvas: Canvas object
+        :return: MyGUI object
+        """
         Frame.__init__(self, parent)
         self.parent = parent
         self.bd = bd
         self.__initUI()
 
     def __initUI(self):
+        """
+        Initializes Tkinter UI
+        :return: None
+        """
 
         self.parent.title("Barcode Generator")
         self.config(bg='#F0F0F0')
@@ -213,21 +305,39 @@ class MyGUI(Frame):
                                                           state=HIDDEN)
 
     def __activateGenerateBtn(self, sv):
+        """
+        Activate Generate Barcode button
+        :param sv: StringVar object
+        :return: None
+        """
         if len(sv.get()) > 0:
             self.generate_button["state"] = "active"
         else:
             self.generate_button["state"] = "disabled"
 
     def __handleGenerate(self):
+        """
+        Handle barcode generation event
+        :return: None
+        """
+        # Hide success message if exists
         self.my_canvas.itemconfig(self.l_saved_success, state=HIDDEN)
+
+        # Get item's name if not empty
         item_name = "Undefined"
         e_item_name_text = self.e_item_name.get()
         if len(e_item_name_text) > 0:
             item_name = e_item_name_text
+
+        # Check that such item doesn't already exist in the JSON file
         if not self.__checkAlreadyExists(item_name):
+
+            # Create and generate barcode
             self.bd.barcode = Barcode("UPC-A", item_name)
             bg = BarcodeGenerator(self.bd.barcode)
             bg.generate()
+
+            # Find picture for item
             bg.find_picture()
             self.bd.draw(self.bd.barcode, self.my_canvas)
             self.save_button["state"] = "active"
@@ -235,6 +345,12 @@ class MyGUI(Frame):
             showinfo("Error", "Barcode for this item already exists")
 
     def __checkAlreadyExists(self, item_name):
+        """
+        Check if item already exists in JSON file,
+        so that there are no duplicate barcodes
+        :param item_name: string representation of item's name
+        :return: Boolean
+        """
         filename = 'barcodes.json'
         with open(filename, "r") as file:
             data = json.load(file)
@@ -244,6 +360,10 @@ class MyGUI(Frame):
         return False
 
     def __saveToFile(self):
+        """
+        Save generated barcode to JSON file
+        :return: None
+        """
         filename = 'barcodes.json'
         entry = {
             "barcode_type": self.bd.barcode.barcode_type,
