@@ -34,5 +34,11 @@
         "barcode_type": "UPC-A",
         "item_name": "Orange",
         "picture_link": "./img/Orange.jpg"
+    },
+    {
+        "barcode_number": "090774725308",
+        "barcode_type": "UPC-A",
+        "item_name": "twix",
+        "picture_link": "./img/twix.jpg"
     }
 ]

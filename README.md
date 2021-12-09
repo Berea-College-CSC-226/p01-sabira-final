@@ -4,9 +4,7 @@ CSC226 Project
 
 ️**Author(s)**: Sabira Duishebaeva
 
-indicates action items; you should remove these emoji as you complete/update the items which they accompany. (This means that your final README should have no in it!)
 
----
 
 **References**: 
 Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, and describe how you integrated the ideas or code into your program. This includes online sources, people who have helped you, and any other resources that are not solely your own contribution. Update as you go.
@@ -15,27 +13,20 @@ Throughout this project, you have likely used outside resources. Reference all i
 
 ## Milestone 1: Setup, Planning, Design (due 1 Dec 2021)
 
-❗️**Title**: What is the title of your project?
+**Title**: Items Barcode Generator
 
-Let's shop together!
+**Purpose**: 
 
-**Purpose**: In a single sentence, describe what your project will do.
+My program will not only generate a random UPC Barcodes for the items that the user will type in the program, 
+but also draw a barcode for it and also display an appropriate for this item image from Google. 
+Also, the user can save the information about this item in a JSON file. Thus, this program can be used by people who work in shops
+to generate barcodes and images of the items in their shops. 
 
-My program is going to display various items from the shop and once you click on each,
-the program will generate a barcode for it and draw the barcode for a successful shopping. 
-
-**Sources**: Which assignments or code will you base your project on?
+**Sources**: 
 
 A08 - UPC Bar code
 
-❗️**CRC Card**:
-  - Please write a CRC card for a class that your project will implement.
-  - See this link for a sample CRC card and a template to
-  use for your own cards (you will have to make a copy to edit): https://docs.google.com/document/d/1JE_3Qmytk_JGztRqkPXWACJwciPH61VCx3idIlBCVFY/edit?usp=sharing
-  - Tables in markdown are not easy, so we suggest saving your CRC card
-  as an image and including the image(s) in the README. You can do this
-  by saving an image in the repository and linking to it. See the sample CRC card below - and replace it with your own.
-  
+**CRC Card**: 
 
 CRC CARD LINK: https://docs.google.com/document/d/1alo3J6SiLNO59cr8YVD90KqUAc_PcugukqiccZ3GSOA/edit?usp=sharing
 ![alt text](
@@ -46,32 +37,57 @@ image/SABIRA_CRC.PNG)
 
 ## Milestone 2: Code (due 3 Dec 2021)
 
-No README action items. You should have some code and a preliminary test suite pushed to your repository. 🙃
-
 ---
+Done
 
 ## Milestone 3: Virtual Check-In (due 6 Dec 2021)
 
-Indicate what percentage of the project you have left to complete and how confident you feel. 
+**Completion Percentage**: 90-100%
 
-❗️**Completion Percentage**: 0 - 100%
-
-❗️**Confidence**: Describe how confident you feel about completing this project, and why. Then, describe some strategies you can employ to increase the likelihood that you'll be successful in completing this project before the deadline.
-
----
+**Confidence**: I feel very confident about this project. I have come up with the solutions for the implementation ideas I had in my mind. 
+I developed almost all the necessary functions, and my program seems to be working in a correct way. 
 
 ## Milestone 4: Final Code, Presentation, Demo (due 10 Dec 2021)
 
 ### ❗User Instructions
-In a paragraph, explain how to use your program. Assume the user is starting just after they hit the "Run" button. 
+
+After the user hits the "Run" button, the user will see an interface of my program.
+First, he needs to input a name of the item (any item you can think of that you can get from the shop) and then click the "Generate Barcode" button.
+After that, the Barcode for this item will be generated along with the appropriate picture from the Google for this item and the barcode lines. 
+Then, the user can/should click the "Save" button to save the information about this item in the JSON file. 
 
 ### ❗Errors and Constraints
 Every program has bugs or features that had to be scrapped for time. Use this section to create a bullet list of all known errors and deficiencies that remain in your code. Bugs found that aren't acknowledged here will be penalized.
 
 ### ❗Reflection
-In three to four well-written paragraphs, address the following (at a minimum):
-- Why did you select the project that you did?
-- How closely did your final project reflect your initial design?
-- What did you learn from this process?
-- What was the hardest part of the final project?
-- What would you do differently next time, knowing what you know now?
+
+As a person, who is interested in business and shopping, I found the UPC Barcode assignment one of the most interesting labs to me.
+  I came up with the decision on how to develop this lab into something that can be useful for people who own shops.
+  I got excited about the idea that this program can actually help shop owners generate barcodes and images of the items for their shops.
+
+  
+My initial design did not differ much from the final - the base idea was to generate the barcode and it remained the same. However,
+I was also thinking of adding some more functionality to the program and came up with two ideas.
+The first idea was to add the image generator - it would generate the first image from the Google Search for the item name 
+that the user input. The second idea was to be able to save this information about the item: its name, barcode, image, link and etc. Thus,
+the initial design did not have this functionality and this is how it was different in the beginning. 
+
+  
+I learnt a lot of new things from the project along with the fact that I also strengthened some of my previous skills by creating this program.
+For example, I had a prior experience working with JSON flat database systems in the web development. Thus, I thought that would be cool to use this skill in
+this project as well by allowing the user to save the items' information in a separate JSON file, so that the
+shoppers would be able to keep track of their items in the shop. I also
+learned how to fetch images from the Google Search and display them in 
+your program - that was the coolest part I am most proud of.
+  
+The most challenging part was to develop the function where it would generate 
+the first image from the Google Search. I had to use various websites and StackOverflow
+to see how people fetch images from the Google Search. It took me a while
+to understand how the API keys work and all API-related libraries.
+Althugh the documentation in their libraries are  relatively straight-forward,
+applying their existing templates in your own code was the most difficult part. 
+
+In the future, I would enhance this project by allowing the user to generate 
+  not only the UPC type of the barcode, but also other types of the barcodes. 
+  I would also work more on the user interface and make it more interactive. 
+  
