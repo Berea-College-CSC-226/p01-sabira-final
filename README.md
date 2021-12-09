@@ -7,7 +7,14 @@ CSC226 Project
 
 
 **References**: 
-Throughout this project, you have likely used outside resources. Reference all ideas which are not your own, and describe how you integrated the ideas or code into your program. This includes online sources, people who have helped you, and any other resources that are not solely your own contribution. Update as you go.
+
+1- This video covers most of the aspects of Tkinter. It helped me a lot to understand its basics and how to use it properly https://www.youtube.com/watch?v=YXPyB4XeYLA&ab_channel=freeCodeCamp.org
+2- From this website I learned about Canvas, which allows drawing in Tkinter https://www.tutorialspoint.com/python/tk_canvas.htm
+3-  From this website I learned how to use text modification event in Tkinter https://www.pythontutorial.net/tkinter/tkinter-stringvar/
+4- This website helped me learn how to deactivate or activate the button https://stackoverflow.com/questions/53580507/disable-enable-button-in-tkinter/53580612
+5- I used the API of this website to search for images in Google https://serpapi.com/images-results
+6- From this website I learned how to download and save images https://www.geeksforgeeks.org/python-pil-image-save-method/
+7- From this website I learned how to save to a JSON file https://stackoverflow.com/questions/12309269/how-do-i-write-json-data-to-a-file
 
 ---
 
